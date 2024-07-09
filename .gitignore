@@ -1,0 +1,2 @@
+shared-infras/.terraform/providers/*
+.terraform/providers/*

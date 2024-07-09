@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"acr","Source":"./modules/azacr","Dir":"modules/azacr"},{"Key":"aks","Source":"registry.terraform.io/Azure/aks/azurerm","Version":"9.0.0","Dir":".terraform/modules/aks"},{"Key":"mysql","Source":"./modules/azmysql","Dir":"modules/azmysql"},{"Key":"store_mysql_password","Source":"./modules/azkv","Dir":"modules/azkv"}]}
