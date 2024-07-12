@@ -43,7 +43,7 @@ resource "azurerm_container_registry" "acr" {
 
 # Attaching a Container Registry to a Kubernetes Cluster
 resource "azurerm_role_assignment" "roles" {
-  for_each = local.roles_map
+  for_each = { for s,a in var.roles : s => a }
 
   scope                = azurerm_container_registry.acr.id
   role_definition_name = each.value.role

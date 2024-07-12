@@ -22,6 +22,7 @@ module "acr" {
     {
       ppal_id = module.aks.kubelet_identity[0].object_id
       role    = "Contributor"
-    }
+    },
   ]
+  depends_on = [ module.aks ]
 }

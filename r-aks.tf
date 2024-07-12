@@ -1,5 +1,5 @@
 module "aks" {
-  source  = "./modules/aks"
+  source  = "Azure/aks/azurerm"
   version = "9.0.0"
 
   admin_username            = local.aks_admin
