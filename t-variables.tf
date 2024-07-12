@@ -166,6 +166,26 @@ variable "admin_enabled" {
   default     = false
 }
 
+variable "key_vault_secrets_provider_enabled" {
+  description = "Specifies whether the admin user is enabled."
+  type        = bool
+  default     = false
+}
+
+variable "secret_rotation_enabled" {
+  type        = bool
+  default     = false
+  description = "Is secret rotation enabled? This variable is only used when `key_vault_secrets_provider_enabled` is `true` and defaults to `false`"
+  nullable    = false
+}
+
+variable "secret_rotation_interval" {
+  type        = string
+  default     = "2m"
+  description = "The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is `true` and defaults to `2m`"
+  nullable    = false
+}
+
 variable "encryption_enabled" {
   description = "Specifies whether the ACR encription is enabled."
   type = bool

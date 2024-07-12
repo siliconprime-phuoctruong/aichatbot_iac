@@ -1,5 +1,5 @@
 module "aks" {
-  source  = "Azure/aks/azurerm"
+  source  = "./modules/aks"
   version = "9.0.0"
 
   admin_username            = local.aks_admin
@@ -27,23 +27,26 @@ module "aks" {
       ]
     }
   ]
-  node_pools                        = local.nodes
-  azure_policy_enabled              = var.aks_azure_policy_enabled
-  enable_auto_scaling               = var.aks_auto_scaling
-  enable_host_encryption            = var.aks_enable_host_encryption
-  local_account_disabled            = var.aks_local_account_disabled
-  log_analytics_workspace_enabled   = var.aks_log_analytics_workspace_enabled
-  net_profile_dns_service_ip        = var.aks_dns_ip
-  net_profile_service_cidr          = var.aks_cidr
-  network_plugin                    = var.aks_network_plugin
-  network_policy                    = var.aks_network_policy
-  os_disk_size_gb                   = var.aks_disk_volume
-  private_cluster_enabled           = var.aks_private_cluster_enabled
-  rbac_aad                          = var.aks_rbac_aad
-  rbac_aad_managed                  = var.aks_rbac_aad_managed
-  role_based_access_control_enabled = var.aks_role_based_access_control_enabled
-  sku_tier                          = var.aks_sku_tier
-  vnet_subnet_id                    = var.bring_your_own_vnet ? local.aks_subnet_id : null
+  node_pools                          = local.nodes
+  azure_policy_enabled                = var.aks_azure_policy_enabled
+  enable_auto_scaling                 = var.aks_auto_scaling
+  enable_host_encryption              = var.aks_enable_host_encryption
+  local_account_disabled              = var.aks_local_account_disabled
+  log_analytics_workspace_enabled     = var.aks_log_analytics_workspace_enabled
+  net_profile_dns_service_ip          = var.aks_dns_ip
+  net_profile_service_cidr            = var.aks_cidr
+  network_plugin                      = var.aks_network_plugin
+  network_policy                      = var.aks_network_policy
+  os_disk_size_gb                     = var.aks_disk_volume
+  private_cluster_enabled             = var.aks_private_cluster_enabled
+  rbac_aad                            = var.aks_rbac_aad
+  rbac_aad_managed                    = var.aks_rbac_aad_managed
+  role_based_access_control_enabled   = var.aks_role_based_access_control_enabled
+  key_vault_secrets_provider_enabled  = var.key_vault_secrets_provider_enabled
+  secret_rotation_enabled             = var.secret_rotation_enabled
+  secret_rotation_interval            = var.secret_rotation_interval
+  sku_tier                            = var.aks_sku_tier
+  vnet_subnet_id                      = var.bring_your_own_vnet ? local.aks_subnet_id : null
 
   green_field_application_gateway_for_ingress = var.use_brown_field_application_gateway ? null : {
     name        = "ingress"

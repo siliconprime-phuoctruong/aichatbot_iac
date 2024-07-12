@@ -41,6 +41,7 @@ resource "azurerm_container_registry" "acr" {
   tags = merge({ "ResourceName" = lower(var.name) }, var.tags, )
 }
 
+# Attaching a Container Registry to a Kubernetes Cluster
 resource "azurerm_role_assignment" "roles" {
   for_each = local.roles_map
 
