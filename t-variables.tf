@@ -16,6 +16,7 @@ variable "location" {
 variable "tenant_id" {
   type = string
   description = "Tenant ID"
+  default = null
 }
 
 variable "owner" {

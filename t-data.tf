@@ -11,8 +11,7 @@ data "terraform_remote_state" "shared-infras" {
 data "http" "current_public_ip" {
   url = "http://ipv4.icanhazip.com"
 }
-data "azurerm_client_config" "current_config" {
-}
+data "azurerm_client_config" "current_config" {}
 
 data "azurerm_key_vault" "devops" {
   name                = "aichatbotdevopsvault"

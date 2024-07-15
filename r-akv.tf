@@ -2,7 +2,7 @@
 # AZURE KEY VAULT
 #--------------------------------------------------------------------------------------------------------------------
 module "app_akv" {
-  source                          = "./modules/akv"
+  source                          = "./modules/azkv"
 
   resource_group_name             = local.aks_azrg_name
   location                        = var.location
@@ -32,7 +32,7 @@ module "app_akv" {
     ]
   }
   admin_objects_ids = [
-    module.aks.key_vault_secrets_provider[0].secret_identity[0].user_assigned_identity_id
+    module.aks.key_vault_secrets_provider.secret_identity[0].object_id
   ]
 
   tags       = merge(local.default_tags, var.extra_tags)

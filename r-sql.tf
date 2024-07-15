@@ -31,7 +31,7 @@ module "mysql" {
 }
 
 module "store_mysql_password" {
-  source    = "./modules/aks/secrets"
+  source    = "./modules/azkv/secrets"
 
   id        = data.azurerm_key_vault.devops.id
   name      = local.mysql_server
