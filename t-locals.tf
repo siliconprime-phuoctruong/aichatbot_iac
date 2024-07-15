@@ -5,6 +5,11 @@ locals {
     owner       = var.owner
   } : {}
 
+  tenant_id = coalesce(
+    var.tenant_id,
+    data.azurerm_client_config.current_config.tenant_id,
+  )
+
   ## Azure Kubernetes Service
   aks_admin  = join("", [var.project, var.environment, random_id.id.hex])
   aks_prefix = join("-", [var.project, var.environment, random_id.id.hex])

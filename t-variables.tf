@@ -13,6 +13,11 @@ variable "location" {
   type        = string
 }
 
+variable "tenant_id" {
+  type = string
+  description = "Tenant ID"
+}
+
 variable "owner" {
   description = "Project onwer name."
   type        = string
@@ -242,4 +247,79 @@ variable "mysql_start_ip" {
 }
 variable "mysql_end_ip" {
   type = string
+}
+
+# Configure Aure Key vault
+
+variable "akv_suffixes" {
+  type = string
+  description = "AKS keyvault"
+}
+
+variable "akv_sku_name" {
+  type = string
+  description = "AKS keyvault Sku"
+  default = "standard"
+}
+
+variable "purge_protection_enabled" {
+  description = "Whether to activate purge protection."
+  type        = bool
+  default     = true
+}
+
+variable "enabled_for_deployment" {
+  description = "Whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the Key Vault."
+  type        = bool
+  default     = false
+}
+
+variable "enabled_for_disk_encryption" {
+  description = "Whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys."
+  type        = bool
+  default     = false
+}
+
+variable "enabled_for_template_deployment" {
+  description = "Whether Azure Resource Manager is permitted to retrieve secrets from the Key Vault."
+  type        = bool
+  default     = false
+}
+
+variable "soft_delete_retention_days" {
+  description = "The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days."
+  type        = number
+  default     = 7
+}
+
+variable "rbac_authorization_enabled" {
+  type        = bool
+  description = "Whether the Key Vault uses Role Based Access Control (RBAC) for authorization of data actions instead of access policies."
+  default     = false
+}
+
+variable "managed_hardware_security_module_enabled" {
+  type        = bool
+  description = "Create a KeyVault Managed HSM resource if enabled. Changing this forces a new resource to be created.."
+  default     = false
+}
+
+variable "public_network_access_enabled" {
+  description = "Whether the Key Vault is available from public network."
+  type        = bool
+  default     = false
+}
+
+variable "akv_bypass" {
+  type = string
+}
+
+variable "akv_default_action" {
+  type = string
+}
+
+variable "allowed_cidrs" {
+  type = list(string)
+  description = "IPs list need to be allow"
+  default = []
 }

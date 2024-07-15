@@ -64,3 +64,17 @@ db_charset                      = "utf8mb3"
 db_collation                    = "utf8mb3_unicode_ci"
 db_name                         = [ "aichatbot" ]
 
+# AZURE KEY VAULT
+akv_suffixes = "vault01"
+akv_sku_name = "standard"
+
+enabled_for_deployment                   = false
+enabled_for_disk_encryption              = false
+enabled_for_template_deployment          = false
+purge_protection_enabled                 = false
+soft_delete_retention_days               = 7
+rbac_authorization_enabled               = false
+public_network_access_enabled            = true
+managed_hardware_security_module_enabled = false
+akv_bypass                               = "AzureServices"
+akv_default_action                       = null
