@@ -35,7 +35,12 @@ module "aks" {
   log_analytics_workspace_enabled     = var.aks_log_analytics_workspace_enabled
   net_profile_dns_service_ip          = var.aks_dns_ip
   net_profile_service_cidr            = var.aks_cidr
+  #Azure CNI Overlay
   network_plugin                      = var.aks_network_plugin
+  network_plugin_mode                 = var.aks_network_plugin_mode
+  ebpf_data_plane                     = var.aks_ebpf_data_plane 
+  pod_cidr                            = var.aks_pod_cidr 
+  
   network_policy                      = var.aks_network_policy
   os_disk_size_gb                     = var.aks_disk_volume
   private_cluster_enabled             = var.aks_private_cluster_enabled

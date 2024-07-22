@@ -120,6 +120,15 @@ variable "aks_cidr" {
 variable "aks_network_plugin" {
   type = string
 }
+variable "aks_network_plugin_mode" {
+  type = string
+}
+variable "aks_ebpf_data_plane" {
+  type = string
+}
+variable "aks_pod_cidr" {
+  type = string
+}
 variable "aks_network_policy" {
   type = string
 }
