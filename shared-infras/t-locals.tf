@@ -10,7 +10,7 @@ locals {
   be_subnet    = upper(join("-", [var.project, var.environment, var.vnet_version, element(var.subnet_suffix, 1)]))
   mgmt_subnet  = upper(join("-", [var.project, var.environment, var.vnet_version, element(var.subnet_suffix, 2)]))
   appgw_subnet = upper(join("-", [var.project, var.environment, var.vnet_version, element(var.subnet_suffix, 3)]))
-
+  pod_subnet   = upper(join("-", [var.project, var.environment, var.vnet_version, element(var.subnet_suffix, 4)]))
   ## Application Gateway
   backend_address_pool_name      = try(join("-", [local.appgw_subnet, "beap"]), "")
   frontend_ip_configuration_name = try(join("-", [local.appgw_subnet, "feip"]), "")

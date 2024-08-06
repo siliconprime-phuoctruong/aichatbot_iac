@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inflate-2
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: inflate-2
+  template:
+    metadata:
+      labels:
+        app: inflate-2
+    spec:
+      terminationGracePeriodSeconds: 0
+      nodeSelector:
+        environment: production
+      containers:
+        - name: inflate-2
+          image: mcr.microsoft.com/oss/kubernetes/pause:3.6
+          resources:
+            requests:
+              cpu: "1"

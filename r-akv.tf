@@ -36,4 +36,5 @@ module "akv" {
   ]
 
   tags       = merge(local.default_tags, var.extra_tags)
+  depends_on = [ module.aks ]
 }

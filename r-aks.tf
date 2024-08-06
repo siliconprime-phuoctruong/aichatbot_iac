@@ -39,8 +39,9 @@ module "aks" {
   network_plugin                      = var.aks_network_plugin
   network_plugin_mode                 = var.aks_network_plugin_mode
   ebpf_data_plane                     = var.aks_ebpf_data_plane 
-  pod_cidr                            = var.aks_pod_cidr 
-  
+  net_profile_pod_cidr                = var.aks_pod_cidr 
+  #pod_subnet_id                       = local.pod_subnet_id
+
   network_policy                      = var.aks_network_policy
   os_disk_size_gb                     = var.aks_disk_volume
   private_cluster_enabled             = var.aks_private_cluster_enabled
@@ -53,15 +54,15 @@ module "aks" {
   sku_tier                            = var.aks_sku_tier
   vnet_subnet_id                      = var.bring_your_own_vnet ? local.aks_subnet_id : null
 
-  green_field_application_gateway_for_ingress = var.use_brown_field_application_gateway ? null : {
-    name        = "ingress"
-    subnet_cidr = local.appgw_cidr
-  }
-  brown_field_application_gateway_for_ingress = var.use_brown_field_application_gateway ? {
-    id        = local.appgw_id
-    subnet_id = local.appgw_subnet_id
-  } : null
-  create_role_assignments_for_application_gateway = var.create_role_assignments_for_application_gateway
+  #green_field_application_gateway_for_ingress = var.use_brown_field_application_gateway ? null : {
+  #  name        = "ingress"
+  #  subnet_cidr = local.appgw_cidr
+  #}
+  #brown_field_application_gateway_for_ingress = var.use_brown_field_application_gateway ? {
+  #  id        = local.appgw_id
+  #  subnet_id = local.appgw_subnet_id
+  #} : null
+  #create_role_assignments_for_application_gateway = var.create_role_assignments_for_application_gateway
 
   tags = merge(local.default_tags, var.extra_tags)
 }
