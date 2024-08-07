@@ -35,19 +35,23 @@ module "aks" {
   log_analytics_workspace_enabled     = var.aks_log_analytics_workspace_enabled
   net_profile_dns_service_ip          = var.aks_dns_ip
   net_profile_service_cidr            = var.aks_cidr
+
   #Azure CNI Overlay
   network_plugin                      = var.aks_network_plugin
   network_plugin_mode                 = var.aks_network_plugin_mode
   ebpf_data_plane                     = var.aks_ebpf_data_plane 
   net_profile_pod_cidr                = var.aks_pod_cidr 
-  #pod_subnet_id                       = local.pod_subnet_id
-
+  
+  oidc_issuer_enabled                 = var.aks_oidc_issuer_enabled
   network_policy                      = var.aks_network_policy
   os_disk_size_gb                     = var.aks_disk_volume
   private_cluster_enabled             = var.aks_private_cluster_enabled
   rbac_aad                            = var.aks_rbac_aad
   rbac_aad_managed                    = var.aks_rbac_aad_managed
-  role_based_access_control_enabled   = var.aks_role_based_access_control_enabled
+
+  # Azure RBAC
+  rbac_aad_azure_rbac_enabled         = var.aks_rbac_aad_azure_rbac_enabled
+
   key_vault_secrets_provider_enabled  = var.key_vault_secrets_provider_enabled
   secret_rotation_enabled             = var.secret_rotation_enabled
   secret_rotation_interval            = var.secret_rotation_interval
