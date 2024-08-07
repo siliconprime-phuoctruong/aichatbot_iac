@@ -29,14 +29,13 @@ module "arg" {
   # Configure subnet
   use_for_each    = var.use_for_each
   subnet_prefixes = var.address_space
-  subnet_names    = [local.aks_subnet, local.be_subnet, local.mgmt_subnet, local.appgw_subnet, local.pod_subnet]
+  subnet_names    = [local.aks_subnet, local.be_subnet, local.mgmt_subnet, local.appgw_subnet]
 
   subnet_service_endpoints = {
     (local.aks_subnet)   = var.subnet_service_endpoints
     (local.be_subnet)    = var.subnet_service_endpoints
     (local.mgmt_subnet)  = var.subnet_service_endpoints
     (local.appgw_subnet) = var.subnet_service_endpoints
-    (local.pod_subnet)   = var.subnet_service_endpoints
   }
 
   tags       = merge(local.default_tags, var.extra_tags)

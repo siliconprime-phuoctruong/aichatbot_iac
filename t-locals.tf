@@ -34,7 +34,7 @@ locals {
   be_subnet_id    = data.terraform_remote_state.shared-infras.outputs.subnet_ids["AICHATBOT-NONPRD-T1-BE"]
   appgw_id        = data.terraform_remote_state.shared-infras.outputs.appgw_id
   appgw_subnet_id = data.terraform_remote_state.shared-infras.outputs.subnet_ids["AICHATBOT-NONPRD-T1-APPGW"]
-  pod_subnet_id   = data.terraform_remote_state.shared-infras.outputs.subnet_ids["AICHATBOT-NONPRD-T1-POD"]
+  #pod_subnet_id   = data.terraform_remote_state.shared-infras.outputs.subnet_ids["AICHATBOT-NONPRD-T1-POD"]
   mysql_dns_id  = data.terraform_remote_state.shared-infras.outputs.private_dns_zone_id["privatelink.mysql.database.azure.com"]
 
 }

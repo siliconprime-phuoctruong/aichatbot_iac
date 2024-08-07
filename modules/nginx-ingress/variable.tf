@@ -16,6 +16,16 @@ variable "aks_vnet_id" {
 }
 
 # Nginx ingress controller
+variable "resource_group_name" {
+  type = string
+  description = "AKS resource group"
+}
+
+variable "aks_name" {
+  type = string
+  description = "AKS cluster name"
+}
+
 variable "nginx_ingress_name" {
   type = string
   description = "Ngnix ingress controller name"

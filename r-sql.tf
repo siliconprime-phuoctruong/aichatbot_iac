@@ -30,10 +30,10 @@ module "mysql" {
   tags = merge(local.default_tags, var.extra_tags)
 }
 
-module "store_mysql_password" {
-  source    = "./modules/azkv/secrets"
-
-  id        = data.azurerm_key_vault.devops.id
-  name      = local.mysql_server
-  value     = random_password.mysql.result
-}
+#module "store_mysql_password" {
+#  source    = "./modules/azkv/secrets"
+#
+#  id        = data.azurerm_key_vault.devops.id
+#  name      = local.mysql_server
+#  value     = random_password.mysql.result
+#}

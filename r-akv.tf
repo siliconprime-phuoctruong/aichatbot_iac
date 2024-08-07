@@ -7,7 +7,7 @@ module "akv" {
   resource_group_name             = local.aks_azrg_name
   location                        = var.location
 
-  akv_name                        = join("", [var.project, var.environment, var.akv_suffixes])
+  akv_name                        = join("", [var.project, var.environment, var.akv_suffixes,random_id.id.hex])
   tenant_id                       = local.tenant_id
   sku_name                        = var.akv_sku_name
 

@@ -12,9 +12,9 @@ extra_tags  = {
 azrg_suffix      = ["aks", "vnet"]
 
 # AZURE VIRTUAL NETWORK
-subnet_suffix       = [ "aks", "be", "mngt", "appgw","pod" ]
+subnet_suffix       = [ "aks", "be", "mngt", "appgw" ]
 address_space       = ["10.216.148.0/22", "10.213.92.64/26",
-                       "10.213.91.48/29", "10.216.152.0/24","192.168.0.0/16"]
+                       "10.213.91.48/29", "10.216.152.0/24"]
 bgp_community        = null
 dns_servers          = ["168.63.129.16"]
 ddos_protection_plan = null
