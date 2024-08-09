@@ -336,3 +336,61 @@ variable "allowed_cidrs" {
   description = "IPs list need to be allow"
   default = []
 }
+
+# Karpenter
+variable "karpenter_role" {
+  type = list(string)
+  description = "karpenter identity role"
+  default = [ "Virtual Machine Contributor", "Network Contributor", "Managed Identity Operator" ]
+}
+
+## Helm release
+# Nginx ingress controller
+variable "nginx_repository" {
+  type = string
+  description = "Helm nginx repo"
+  default = "https://kubernetes.github.io/ingress-nginx/"
+}
+
+variable "nginx_chart" {
+  type = string
+  description = "Helm nginx chart"
+  default = "ingress-nginx"
+}
+
+variable "nginx_namespace" {
+  type = string
+  description = "Helm nginx namespace"
+  default = "ingress"
+}
+
+variable "nginx_version" {
+  type = string
+  description = "Helm nginx version"
+  default = "4.11.1"
+}
+
+# Karpenter
+variable "kar_repo" {
+  type = string
+  description = "Helm karpenter repo"
+  default = "oci://mcr.microsoft.com/aks/karpenter/karpenter"
+}
+
+variable "kar_chart" {
+  type = string
+  description = "Helm karpenter chart"
+  default = "karpenter"
+}
+
+variable "kar_namespace" {
+  type = string
+  description = "Helm karpenter namespace"
+  default = "karpenter"
+}
+
+variable "kar_version" {
+  type = string
+  description = "Helm karpenter version"
+  default = "0.5.1"
+}

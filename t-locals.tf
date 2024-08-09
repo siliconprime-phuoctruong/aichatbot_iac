@@ -37,4 +37,7 @@ locals {
   #pod_subnet_id   = data.terraform_remote_state.shared-infras.outputs.subnet_ids["AICHATBOT-NONPRD-T1-POD"]
   mysql_dns_id  = data.terraform_remote_state.shared-infras.outputs.private_dns_zone_id["privatelink.mysql.database.azure.com"]
 
+  # FEDERATED IDENTITY
+  f_audience = ["api://AzureADTokenExchange"]
+  f_subject  = join("",["system:serviceaccount:", var.kar_namespace, ":karpenter-sa"])
 }
