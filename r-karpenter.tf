@@ -33,7 +33,7 @@ module "karpenter_role" {
   for_each = toset(var.karpenter_role)
 
   role             = each.key
-  aks_scope        = module.aks.node_resource_group
+  aks_scope        = join("", ["/subscriptions/",data.azurerm_client_config.current_config.subscription_id,"/resourceGroups/",module.aks.node_resource_group])
   aks_principal_id = module.aks_identity.principal_id
 
   depends_on = [ module.aks, module.aks_identity ]
@@ -46,9 +46,7 @@ resource "null_resource" "karvalues" {
 
   provisioner "local-exec" {
   command = <<EOT
-    curl -sO https://raw.githubusercontent.com/Azure/karpenter-provider-azure/main/hack/deploy/configure-values.sh && \
-    chmod +x ./configure-values.sh && \
-    ./configure-values.sh ${module.aks.aks_name} ${local.aks_azrg_name} karpenter-sa ${module.aks_identity.name}
+    curl -sO https://raw.githubusercontent.com/Azure/karpenter-provider-azure/main/hack/deploy/configure-values.sh && chmod +x ./configure-values.sh && ./configure-values.sh ${module.aks.aks_name} ${local.aks_azrg_name} karpenter-sa ${module.aks_identity.name}
   EOT
   }
     depends_on = [ module.aks, module.aks_identity ]

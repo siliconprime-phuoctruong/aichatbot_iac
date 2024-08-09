@@ -6,11 +6,11 @@ variable "aks_principal_id" {
 
 variable "role" {
   type = string
-  description = "AKS virtual network role"
+  description = "role that need to be assigned"
   default = "Network Contributor"
 }
 
 variable "aks_scope" {
   type = string
-  description = "AKS vnet ID"
+  description = "Resources ID"
 }
