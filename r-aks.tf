@@ -8,7 +8,7 @@ module "aks" {
   kubernetes_version        = var.aks_version
   automatic_channel_upgrade = var.aks_upgrade
 
-  agents_pool_name          = join("", ["agent", random_id.id.hex])
+  agents_pool_name          = join("", ["agent"])
   agents_availability_zones = var.aks_agent_zones
   agents_count              = var.aks_agent_count
   agents_max_count          = var.aks_max_count

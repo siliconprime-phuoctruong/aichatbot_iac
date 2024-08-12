@@ -8,7 +8,8 @@ spec:
   template:
     metadata:
       labels:
-        environment: production
+        managedBy: Devops
+        environment: devfe
     spec:
       requirements:
         - key: kubernetes.io/arch
@@ -27,6 +28,10 @@ spec:
         name: default
   limits:
     cpu: 100
+    memory: 300Gi
+  # Priority given to the node pool when the scheduler considers which to select. Higher weights indicate higher priority when comparing node pools.
+  # Specifying no weight is equivalent to specifying a weight of 0.
+  weight: 10
   disruption:
     consolidationPolicy: WhenUnderutilized
     expireAfter: Never
@@ -39,3 +44,5 @@ metadata:
     kubernetes.io/description: "General purpose AKSNodeClass for running Ubuntu2204 nodes"
 spec:
   imageFamily: Ubuntu2204
+  imageVersion: 202311.07.0
+  #osDiskSizeGB: 128

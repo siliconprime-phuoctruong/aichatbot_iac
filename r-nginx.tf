@@ -30,6 +30,6 @@ module "nginx_ingress_controller" {
   chart               = var.nginx_chart
   namespace           = var.nginx_namespace
   values              = [ file("./modules/helm-release/values.yaml") ]
-  version             = var.nginx_version
+  #version             = var.nginx_version
   depends_on          = [ module.aks, module.nginx_role, null_resource.akscredentials ]
 }

@@ -3,7 +3,7 @@ module "acr" {
   source    = "./modules/azacr"
 
   #name                      = join("", [var.project, var.environment, each.key, random_id.id.hex])
-  name                      = join("", [var.project, var.environment, each.key,random_id.id.hex])
+  name                      = join("", [var.project, var.environment, each.key])
   resource_group_name       = local.aks_azrg_name
   location                  = var.location
   sku                       = var.acr_sku

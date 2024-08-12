@@ -26,11 +26,11 @@ variable "create_namespace" {
   default = true
 }
 
-variable "version" {
-  type = string
-  description = "Helm resources version"
-  default = ""
-}
+#variable "version" {
+#  type = string
+#  description = "Helm resources version"
+#  default = ""
+#}
 
 variable "values" {
   type = list(string)

@@ -14,7 +14,7 @@ spec:
     spec:
       terminationGracePeriodSeconds: 0
       nodeSelector:
-        environment: production
+        environment: devfe
       containers:
         - name: inflate-2
           image: mcr.microsoft.com/oss/kubernetes/pause:3.6

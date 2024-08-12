@@ -5,7 +5,7 @@ resource "helm_release" "ingress" {
   chart            = var.chart
   namespace        = var.namespace
   create_namespace = var.create_namespace
-  version          = var.version
+  #version          = var.version
   
   values           = var.values
 }

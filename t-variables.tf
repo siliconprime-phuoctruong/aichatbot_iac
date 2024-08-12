@@ -374,7 +374,7 @@ variable "nginx_version" {
 variable "kar_repo" {
   type = string
   description = "Helm karpenter repo"
-  default = "oci://mcr.microsoft.com/aks/karpenter/karpenter"
+  default = "oci://mcr.microsoft.com/aks/karpenter"
 }
 
 variable "kar_chart" {

@@ -19,7 +19,10 @@ aks_min_count                         = 1
 aks_max_pod                           = 100
 aks_agent_type                        = "VirtualMachineScaleSets"
 aks_azure_policy_enabled              = true
+
+# must disable when using node-provisioning-mode Auto
 aks_auto_scaling                      = true
+
 aks_enable_host_encryption            = true
 aks_local_account_disabled            = false
 aks_log_analytics_workspace_enabled   = false
