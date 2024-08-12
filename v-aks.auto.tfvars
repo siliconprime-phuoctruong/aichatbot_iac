@@ -21,7 +21,7 @@ aks_agent_type                        = "VirtualMachineScaleSets"
 aks_azure_policy_enabled              = true
 
 # must disable when using node-provisioning-mode Auto
-aks_auto_scaling                      = true
+aks_auto_scaling                      = false
 
 aks_enable_host_encryption            = true
 aks_local_account_disabled            = false
@@ -33,7 +33,7 @@ aks_network_policy                    = "cilium"
 aks_network_plugin_mode               = "overlay"
 aks_ebpf_data_plane                   = "cilium"
 aks_pod_cidr                          = "10.1.0.0/16"
-aks_disk_volume                       = 60
+aks_disk_volume                       = 50
 aks_private_cluster_enabled           = false
 key_vault_secrets_provider_enabled    = true
 secret_rotation_enabled               = false
