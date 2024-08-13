@@ -21,7 +21,7 @@ aks_agent_type                        = "VirtualMachineScaleSets"
 aks_azure_policy_enabled              = true
 
 # must disable when using node-provisioning-mode Auto
-aks_auto_scaling                      = false
+aks_auto_scaling                      = true
 
 aks_enable_host_encryption            = true
 aks_local_account_disabled            = false

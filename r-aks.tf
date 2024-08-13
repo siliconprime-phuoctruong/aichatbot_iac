@@ -18,31 +18,19 @@ module "aks" {
   agents_pool_linux_os_configs = [
     {
       transparent_huge_page_enabled = "always"
-      sysctl_configs = {
-        fs_aio_max_nr               = 65536
-        fs_file_max                 = 100000
-        fs_inotify_max_user_watches = 1000000
-      }
+      sysctl_configs = [
+        {
+          fs_aio_max_nr               = 65536
+          fs_file_max                 = 100000
+          fs_inotify_max_user_watches = 1000000
+        }
+      ]
     }
-    max_count = var.aks_max_count
-    max_pods = var.aks_max_pod
-    mode = { "System" }
-    min_count = var.aks_min_count
-    os_disk_size_gb                     = var.aks_disk_volume
-    enable_host_encryption              = var.aks_enable_host_encryption
-    os_disk_type                        = "Managed"
-    os_sku                              = "Ubuntu"
-    os_type                             = "Linux"
-    upgrade_settings = {
-      max_surge = "10"
-    }
-    vnet_subnet_id                      = var.bring_your_own_vnet ? local.aks_subnet_id : null
-    workload_runtime = "OCIContainer"
-  }
-  #node_pools                          = local.nodes
+  ]
+  node_pools                          = local.nodes
   azure_policy_enabled                = var.aks_azure_policy_enabled
-  #enable_auto_scaling                 = var.aks_auto_scaling
-  
+  enable_auto_scaling                 = var.aks_auto_scaling
+  enable_host_encryption              = var.aks_enable_host_encryption
   local_account_disabled              = var.aks_local_account_disabled
   log_analytics_workspace_enabled     = var.aks_log_analytics_workspace_enabled
   net_profile_dns_service_ip          = var.aks_dns_ip
@@ -59,7 +47,7 @@ module "aks" {
   
   oidc_issuer_enabled                 = var.aks_oidc_issuer_enabled
   network_policy                      = var.aks_network_policy
-  
+  os_disk_size_gb                     = var.aks_disk_volume
   private_cluster_enabled             = var.aks_private_cluster_enabled
   rbac_aad                            = var.aks_rbac_aad
   rbac_aad_managed                    = var.aks_rbac_aad_managed
