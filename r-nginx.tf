@@ -9,18 +9,6 @@ module "nginx_role" {
 }
 
 #--------------------------------------------------------------------------------------------------------------------
-# AKS ROLE ASSIGNMENT
-#--------------------------------------------------------------------------------------------------------------------
-module "aks_role" {
-  source = "./modules/role_assign"
-
-  aks_principal_id    = data.azurerm_client_config.current_config.client_id
-  aks_scope           = module.aks.id
-  role = "Azure Kubernetes Service RBAC Cluster Admin"
-  depends_on = [ module.aks ]
-}
-
-#--------------------------------------------------------------------------------------------------------------------
 # NULL RESOURCE
 #--------------------------------------------------------------------------------------------------------------------
 resource "null_resource" "akscredentials" {

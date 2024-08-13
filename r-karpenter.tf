@@ -42,28 +42,31 @@ module "karpenter_role" {
 #--------------------------------------------------------------------------------------------------------------------
 # NULL RESOURCE
 #--------------------------------------------------------------------------------------------------------------------
-#resource "null_resource" "karvalues" {
-#
-#  provisioner "local-exec" {
-#  command = <<EOT
-#    curl -sO https://raw.githubusercontent.com/Azure/karpenter-provider-azure/main/hack/deploy/configure-values.sh && chmod +x configure-values.sh && bash configure-values.sh ${module.aks.aks_name} ${local.aks_azrg_name} karpenter-sa ${module.aks_identity.name}
-#  EOT
-#  }
-#    depends_on = [ module.aks, module.aks_identity ]
-#}
+resource "null_resource" "karvalues" {
+
+  provisioner "local-exec" {
+  command = <<EOT
+    curl -sO https://raw.githubusercontent.com/Azure/karpenter-provider-azure/main/hack/deploy/configure-values.sh && chmod +x configure-values.sh && bash configure-values.sh ${module.aks.aks_name} ${local.aks_azrg_name} karpenter-sa ${module.aks_identity.name}
+  EOT
+  environment = {
+    AZURE_SUBSCRIPTION_ID = "${data.azurerm_client_config.current_config.subscription_id}"
+  }
+  }
+    depends_on = [ module.aks, module.aks_identity ]
+}
 
 #--------------------------------------------------------------------------------------------------------------------
 # KARPENTER
 #--------------------------------------------------------------------------------------------------------------------
-#module "karpenter" {
-#  source = "./modules/helm-release"
-#
-#  name          = join("", [var.project, var.environment, "karpenter"])
-#  repository    = var.kar_repo
-#  chart         = var.kar_chart
-#  namespace     = var.kar_namespace
-#  #version       = var.kar_version
-#  values        = [file("./karpenter-values.yaml")]
-#
-#  depends_on = [ module.aks, module.aks_identity ]
-#}
+module "karpenter" {
+  source = "./modules/helm-release"
+
+  name          = join("", [var.project, var.environment, "karpenter"])
+  repository    = var.kar_repo
+  chart         = var.kar_chart
+  namespace     = var.kar_namespace
+  #version       = var.kar_version
+  values        = [file("./karpenter-values.yaml")]
+
+  depends_on = [ module.aks, module.aks_identity ]
+}

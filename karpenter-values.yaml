@@ -1,0 +1,53 @@
+replicas: 1 # for better debugging experience
+controller:
+  env:
+    - name: FEATURE_GATES
+      value: Drift=true
+    - name: LEADER_ELECT # disable leader election for better debugging / troubleshooting experience
+      value: "false"
+    # with this in place write (and read) QPS can be increased too
+
+    #- name: GODEBUG
+
+    #  value: http2client=0
+
+    # options
+    - name: CLUSTER_NAME
+      # disable HTTP/2 to reduce ARM throttling on large-scale tests;
+
+      value: aichatbot-dev-aks
+    - name: CLUSTER_ENDPOINT
+      value: https://aichatbot-dev-kc8nkfxi.hcp.eastus.azmk8s.io:443
+    - name: KUBELET_BOOTSTRAP_TOKEN
+      value: neugih.g8we4a3g13xpjf4g
+    - name: SSH_PUBLIC_KEY
+      value: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCX6q7gAOmB2N+QV9bgJqdIf9dh3GVS6i1tljE2Ud2T7ldkytzoEhVkV/X4ZnnWNWvqd/bfPQGCYU++iTEWcudHHanMiM1kIjjxwKYfc5WnpgcnaF/RsXVLHwpP6Tz3148n5ZgXAbUiAwJst02HVmCi9YEfPFtp9hbxHZrE7hzY6WvJEiSIlupcXReUFEyOQ1OoEFtEkmnN/hujTDm06GCJTB/3aHZUk1KNv8YRoWil8Ni64JQXKzjNiq45C3ZfZY/kSZ2t8oFFGzXunktHKGwY7Foji2qof9GBNXVr48SEU9mKVd7rY3QHrcxW9DJvOrEPL5qX6M6kpThjmXerYZDx azureuser"
+    - name: NETWORK_PLUGIN
+      value: "azure"
+    - name: NETWORK_POLICY
+      value: ""
+    - name: VNET_SUBNET_ID
+      value: "/subscriptions/85c60575-b3f1-4078-8788-5e150fb84555/resourceGroups/AZRG-AICHATBOT-NONPRD-VNET/providers/Microsoft.Network/virtualNetworks/AICHATBOT-NONPRD-T1-VNET-219B/subnets/AICHATBOT-NONPRD-T1-AKS"
+    - name: NODE_IDENTITIES
+      value: C:/Program Files/Git/subscriptions/85c60575-b3f1-4078-8788-5e150fb84555/resourcegroups/MC_AZRG-AICHATBOT-NONPRD-AKS_aichatbot-dev-aks_eastus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/aichatbot-dev-aks-agentpool
+    # Azure client settings
+    - name: ARM_SUBSCRIPTION_ID
+      value: 85c60575-b3f1-4078-8788-5e150fb84555
+    - name: LOCATION
+      value: eastus
+    - name: ARM_USE_CREDENTIAL_FROM_ENVIRONMENT
+      # settings for managed workload identity
+
+      value: "true"
+    - name: ARM_USE_MANAGED_IDENTITY_EXTENSION
+      value: "false"
+    - name: ARM_USER_ASSIGNED_IDENTITY_ID
+      value: ""
+    - name: AZURE_NODE_RESOURCE_GROUP
+      value: MC_AZRG-AICHATBOT-NONPRD-AKS_aichatbot-dev-aks_eastus
+serviceAccount:
+  name: karpenter-sa
+  annotations:
+    azure.workload.identity/client-id: 37e9a400-df48-43b1-a6b9-9998f7fa725d
+podLabels:
+  azure.workload.identity/use: "true"
