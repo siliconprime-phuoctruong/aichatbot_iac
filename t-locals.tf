@@ -21,6 +21,7 @@ locals {
       node_count            = var.aks_node_count
       vnet_subnet_id                     = data.terraform_remote_state.shared-infras.outputs.subnet_ids["AICHATBOT-NONPRD-T1-AKS"]
       create_before_destroy = i % 2 == 0
+      workload_runtime      = "OCIContainer"
     }
   }
 

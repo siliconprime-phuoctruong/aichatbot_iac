@@ -26,6 +26,7 @@ aks_auto_scaling                      = false
 aks_enable_host_encryption            = true
 aks_local_account_disabled            = false
 aks_log_analytics_workspace_enabled   = false
+aks_workload_identity_enabled         = true
 aks_dns_ip                            = "10.0.0.200"
 aks_cidr                              = "10.0.0.0/16"
 aks_network_plugin                    = "azure"
