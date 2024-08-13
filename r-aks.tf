@@ -36,9 +36,9 @@ module "aks" {
   net_profile_dns_service_ip          = var.aks_dns_ip
   net_profile_service_cidr            = var.aks_cidr
   
-  identity = {
-    type                              = "SystemAssigned"
-  }
+
+  identity_type                       = "SystemAssigned"
+
   #Azure CNI Overlay
   network_plugin                      = var.aks_network_plugin
   network_plugin_mode                 = var.aks_network_plugin_mode
@@ -54,7 +54,7 @@ module "aks" {
 
   # Azure RBAC
   rbac_aad_azure_rbac_enabled         = var.aks_rbac_aad_azure_rbac_enabled
-
+  role_based_access_control_enabled   = true
   key_vault_secrets_provider_enabled  = var.key_vault_secrets_provider_enabled
   secret_rotation_enabled             = var.secret_rotation_enabled
   secret_rotation_interval            = var.secret_rotation_interval
