@@ -8,7 +8,7 @@ module "aks" {
   kubernetes_version        = var.aks_version
   automatic_channel_upgrade = var.aks_upgrade
 
-  agents_pool_name          = join("", ["agent"])
+  agents_pool_name          = join("", ["agent", random_id.id.hex])
   agents_availability_zones = var.aks_agent_zones
   agents_count              = var.aks_agent_count
   agents_max_count          = var.aks_max_count
@@ -72,7 +72,7 @@ module "aks" {
   secret_rotation_interval            = var.secret_rotation_interval
   sku_tier                            = var.aks_sku_tier
   vnet_subnet_id                      = var.bring_your_own_vnet ? local.aks_subnet_id : null
-
+  workload_identity_enabled           = var.aks_workload_identity_enabled
   #green_field_application_gateway_for_ingress = var.use_brown_field_application_gateway ? null : {
   #  name        = "ingress"
   #  subnet_cidr = local.appgw_cidr
