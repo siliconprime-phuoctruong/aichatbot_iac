@@ -150,6 +150,9 @@ variable "aks_rbac_aad_azure_rbac_enabled" {
 variable "aks_oidc_issuer_enabled" {
   type = bool
 }
+variable "aks_workload_identity_enabled" {
+  type = bool
+}
 variable "aks_sku_tier" {
   type = string
 }
