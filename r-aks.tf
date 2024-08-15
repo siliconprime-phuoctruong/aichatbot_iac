@@ -37,7 +37,7 @@ module "aks" {
   net_profile_service_cidr            = var.aks_cidr
   
 
-  identity_type                       = "SystemAssigned"
+  #identity_type                       = "SystemAssigned"
 
   #Azure CNI Overlay
   network_plugin                      = var.aks_network_plugin

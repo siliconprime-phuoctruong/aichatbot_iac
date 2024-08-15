@@ -27,8 +27,8 @@ module "akv" {
 
     virtual_network_subnet_ids = [
       local.aks_subnet_id,
-      local.be_subnet_id,
-      local.appgw_subnet_id
+      local.be_subnet_id
+      #local.appgw_subnet_id
     ]
   }
   admin_objects_ids = [

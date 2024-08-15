@@ -162,7 +162,7 @@ variable "bring_your_own_vnet" {
 }
 variable "create_role_assignments_for_application_gateway" {
   type    = bool
-  default = true
+  default = false
 }
 
 variable "use_brown_field_application_gateway" {
@@ -340,12 +340,12 @@ variable "allowed_cidrs" {
   default = []
 }
 
-# Karpenter
-variable "karpenter_role" {
-  type = list(string)
-  description = "karpenter identity role"
-  default = [ "Virtual Machine Contributor", "Network Contributor", "Managed Identity Operator" ]
-}
+## Karpenter
+#variable "karpenter_role" {
+#  type = list(string)
+#  description = "karpenter identity role"
+#  default = [ "Virtual Machine Contributor", "Network Contributor", "Managed Identity Operator" ]
+#}
 
 ## Helm release
 # Nginx ingress controller
@@ -373,27 +373,27 @@ variable "nginx_version" {
   default = "4.11.1"
 }
 
-# Karpenter
-variable "kar_repo" {
-  type = string
-  description = "Helm karpenter repo"
-  default = "oci://mcr.microsoft.com/aks/karpenter"
-}
-
-variable "kar_chart" {
-  type = string
-  description = "Helm karpenter chart"
-  default = "karpenter"
-}
-
-variable "kar_namespace" {
-  type = string
-  description = "Helm karpenter namespace"
-  default = "karpenter"
-}
-
-variable "kar_version" {
-  type = string
-  description = "Helm karpenter version"
-  default = "0.5.1"
-}
+## Karpenter
+#variable "kar_repo" {
+#  type = string
+#  description = "Helm karpenter repo"
+#  default = "oci://mcr.microsoft.com/aks/karpenter"
+#}
+#
+#variable "kar_chart" {
+#  type = string
+#  description = "Helm karpenter chart"
+#  default = "karpenter"
+#}
+#
+#variable "kar_namespace" {
+#  type = string
+#  description = "Helm karpenter namespace"
+#  default = "karpenter"
+#}
+#
+#variable "kar_version" {
+#  type = string
+#  description = "Helm karpenter version"
+#  default = "0.5.1"
+#}
