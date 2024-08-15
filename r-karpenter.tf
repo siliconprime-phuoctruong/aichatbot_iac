@@ -66,7 +66,7 @@ module "karpenter" {
   chart         = var.kar_chart
   namespace     = var.kar_namespace
   #version       = var.kar_version
-  values        = [file("./karpenter-values.yaml")]
+  values        = [local.karpenter_template]
 
   depends_on = [ module.aks, module.aks_identity ]
 }
