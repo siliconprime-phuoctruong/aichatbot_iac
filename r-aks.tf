@@ -73,3 +73,14 @@ module "aks" {
 
   tags = merge(local.default_tags, var.extra_tags)
 }
+
+#--------------------------------------------------------------------------------------------------------------------
+# ROLE ASSIGNMENT
+#--------------------------------------------------------------------------------------------------------------------
+module "admin_role" {
+  source = "./modules/role_assign"
+
+  aks_principal_id    = data.azurerm_client_config.current_config.object_id
+  role                = "Azure Kubernetes Service RBAC Cluster Admin"
+  aks_scope           = module.aks.aks_id
+}

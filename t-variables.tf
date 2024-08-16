@@ -349,30 +349,30 @@ variable "allowed_cidrs" {
 
 ## Helm release
 # Nginx ingress controller
-variable "nginx_repository" {
-  type = string
-  description = "Helm nginx repo"
-  default = "https://kubernetes.github.io/ingress-nginx/"
-}
-
-variable "nginx_chart" {
-  type = string
-  description = "Helm nginx chart"
-  default = "ingress-nginx"
-}
-
-variable "nginx_namespace" {
-  type = string
-  description = "Helm nginx namespace"
-  default = "ingress"
-}
-
-variable "nginx_version" {
-  type = string
-  description = "Helm nginx version"
-  default = "4.11.1"
-}
-
+#variable "nginx_repository" {
+#  type = string
+#  description = "Helm nginx repo"
+#  default = "https://kubernetes.github.io/ingress-nginx/"
+#}
+#
+#variable "nginx_chart" {
+#  type = string
+#  description = "Helm nginx chart"
+#  default = "ingress-nginx"
+#}
+#
+#variable "nginx_namespace" {
+#  type = string
+#  description = "Helm nginx namespace"
+#  default = "ingress"
+#}
+#
+#variable "nginx_version" {
+#  type = string
+#  description = "Helm nginx version"
+#  default = "4.11.1"
+#}
+#
 ## Karpenter
 #variable "kar_repo" {
 #  type = string
