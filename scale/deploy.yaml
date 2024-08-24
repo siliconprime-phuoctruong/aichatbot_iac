@@ -17,7 +17,6 @@ spec:
       #  environment: production
       containers:
         - name: inflate
-          image: mcr.microsoft.com/oss/kubernetes/pause:3.6
-          resources:
-            requests:
-              cpu: "1"
+          image: pnsmiling/phong
+          ports:
+          - containerPort: 80

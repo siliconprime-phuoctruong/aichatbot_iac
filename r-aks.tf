@@ -83,4 +83,6 @@ module "admin_role" {
   aks_principal_id    = data.azurerm_client_config.current_config.object_id
   role                = "Azure Kubernetes Service RBAC Cluster Admin"
   aks_scope           = module.aks.aks_id
+
+  depends_on = [ module.aks ]
 }
