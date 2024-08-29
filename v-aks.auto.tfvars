@@ -4,7 +4,7 @@ environment  = "dev"
 owner        = "allsup"
 location     = "eastus"
 domain       = ""
-app_services = [ "fe", "crm", "core" ]
+app_services = [ "nonprd"]
 extra_tags  = {
   "creator"  = "Managed by Terraform"
 }
