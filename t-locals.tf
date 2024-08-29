@@ -11,8 +11,8 @@ locals {
   )
 
   ## Azure Kubernetes Service
-  aks_admin  = join("", [var.project, var.environment, random_id.id.hex])
-  aks_prefix = join("-", [var.project, var.environment, random_id.id.hex])
+  aks_admin  = join("", [var.project, var.environment])
+  aks_prefix = join("-", [var.project, var.environment])
   appgw_cidr = !var.use_brown_field_application_gateway && !var.bring_your_own_vnet ? "10.225.0.0/16" : "10.52.1.0/24"
   nodes = {
     for i in range(var.aks_nodepool_count) : "worker${i}" => {
@@ -25,7 +25,7 @@ locals {
   }
 
   ## Azure Database for flexible MySQL
-  mysql_server   = join("", [var.project, var.environment, random_id.id.hex])
+  mysql_server   = join("", [var.project, var.environment])
   admin_username = join("", [var.project, var.environment, "admin"])
 
   ## Data form shared infrastructure

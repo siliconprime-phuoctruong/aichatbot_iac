@@ -18,11 +18,11 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name   = "AZRG-AICHABOT-DEVOPS"
-    container_name        = "tfstate"
-    storage_account_name  = "aichatbotdevopssto"
-    key                   = "dev-environment.tfstate"
-    access_key            = "cCaWYs8mogeUm0Eq8Z9XYo0GQYDC94GW43awByrCYsEQNLmf8WNIk4fHu9sf/cNLOlw36n88RyE8+AStB4GWUw=="
+    resource_group_name   = "__Devops_rsgroup__"
+    container_name        = "__Container__"
+    storage_account_name  = "__Devops_sto__"
+    key                   = "__Dev_env_key__"
+    access_key            = "__Access_key__"
   }
 }
 
@@ -32,6 +32,6 @@ provider "azurerm" {
     prevent_deletion_if_contains_resources = false
    }
   }
-  subscription_id = "85c60575-b3f1-4078-8788-5e150fb84555"
-  tenant_id       = "b3dc8175-7891-4b01-9e44-8e18fa4277f0"
+  subscription_id "__Subscription_id__"
+  tenant_id       "__Tenant_id__"
 }

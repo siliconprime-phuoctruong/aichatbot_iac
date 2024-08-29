@@ -1,8 +1,8 @@
 # GENERAL
-project     = "aichatbot"
-environment = "nonprd"
+project     = "__Project__"
+environment = "__Environment__"
 owner       = "allsup"
-location    = "eastus"
+location    = "__Location__"
 domain      = ""
 extra_tags  = {
   "creator"  = "Managed by Terraform"
@@ -12,9 +12,8 @@ extra_tags  = {
 azrg_suffix      = ["aks", "vnet"]
 
 # AZURE VIRTUAL NETWORK
-subnet_suffix       = [ "aks", "be", "mngt", "appgw" ]
-address_space       = ["10.216.148.0/22", "10.213.92.64/26",
-                       "10.213.91.48/29", "10.216.152.0/24"]
+subnet_suffix       = [ __Subnet_suffix__ ]
+address_space       = [ __Address_space__ ]
 bgp_community        = null
 dns_servers          = ["168.63.129.16"]
 ddos_protection_plan = null

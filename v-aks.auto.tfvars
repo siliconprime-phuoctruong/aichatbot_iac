@@ -1,10 +1,10 @@
 # GENERAL
-project      = "aichatbot"
-environment  = "dev"
+project      = "__Project__"
+environment  = "__Dev_env__"
 owner        = "allsup"
-location     = "eastus"
+location     = "__Location__"
 domain       = ""
-app_services = [ "nonprd"]
+app_services = [ __ARC_suffix__]
 extra_tags  = {
   "creator"  = "Managed by Terraform"
 }
@@ -35,10 +35,10 @@ secret_rotation_interval            = "2m"
 aks_rbac_aad                        = true
 aks_rbac_aad_managed                = true
 aks_role_based_access_control_enabled = true
-aks_sku_tier                          = "Standard"
+aks_sku_tier                          = __AKS_sku__
 aks_nodepool_count                    = 1
 aks_node_count                        = 1
-aks_node_size                         = "Standard_D2s_v3"
+aks_node_size                         = __Node_size__
 use_brown_field_application_gateway   = true
 bring_your_own_vnet                   = true
 
@@ -51,7 +51,7 @@ quarantine_policy_enabled = false
 mysql_version               = "8.0.21"
 mysql_availability_zones    = "2"
 mysql_storage_size          = "100"
-mysql_sku                       = "GP_Standard_D4ds_v4"
+mysql_sku                       = __Mysql_sku__
 mysql_vnet_integration_enabled  = false
 mysql_backup_retention_days     = "30"
 mysql_iops                      = "1000"
@@ -62,7 +62,7 @@ mysql_start_ip                  = "10.20.3.0"
 mysql_end_ip                    = "10.20.3.255"
 db_charset                      = "utf8mb3"
 db_collation                    = "utf8mb3_unicode_ci"
-db_name                         = [ "aichatbot" ]
+db_name                         = [ __DB_name__ ]
 
 # AZURE KEY VAULT
 akv_suffixes = "vault01"
