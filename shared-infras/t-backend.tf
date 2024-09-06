@@ -10,11 +10,11 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name   = "__Devops_rsgroup__"
-    container_name        = "__Container__"
-    storage_account_name  = "__Devops_sto__"
-    key                   = "__shared_infra_key__"
-    access_key            = "__Access_key__"
+    resource_group_name   = "__DevopsResourceGroup__"
+    container_name        = "__DevopsContainer__"
+    storage_account_name  = "__DevopsStorageAccount__"
+    key                   = "__CommonKey__"
+    access_key            = "__StorageAccountKey__"
   }
 }
 

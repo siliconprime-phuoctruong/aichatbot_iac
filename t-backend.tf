@@ -18,11 +18,11 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name   = "__Devops_rsgroup__"
-    container_name        = "__Container__"
-    storage_account_name  = "__Devops_sto__"
-    key                   = "__Dev_env_key__"
-    access_key            = "__Access_key__"
+    resource_group_name   = "__DevopsResourceGroup__"
+    container_name        = "__DevopsContainer__"
+    storage_account_name  = "__DevopsStorageAccount__"
+    key                   = "__DevenvKey__"
+    access_key            = "__StorageAccountKey__"
   }
 }
 
@@ -32,6 +32,6 @@ provider "azurerm" {
     prevent_deletion_if_contains_resources = false
    }
   }
-  subscription_id "__Subscription_id__"
-  tenant_id       "__Tenant_id__"
+  subscription_id = "__Subscription_id__"
+  tenant_id       = "__Tenant_id__"
 }

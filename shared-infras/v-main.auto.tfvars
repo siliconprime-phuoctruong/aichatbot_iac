@@ -9,11 +9,11 @@ extra_tags  = {
 }
 
 # AZURE RESOURCE GROUP
-azrg_suffix      = ["aks", "vnet"]
+azrg_suffix      = [__Azrg_Suffix__]
 
 # AZURE VIRTUAL NETWORK
-subnet_suffix       = [ __Subnet_suffix__ ]
-address_space       = [ __Address_space__ ]
+subnet_suffix       = [ __Subnet_Suffix__ ]
+address_space       = [ __Address_Space__ ]
 bgp_community        = null
 dns_servers          = ["168.63.129.16"]
 ddos_protection_plan = null
@@ -32,9 +32,9 @@ subnet_service_endpoints = [
 ]
 
 # AZURE APPLICATION GATEWAY
-azgw_suffix             = "ingress"
+azgw_suffix             = "__Azgw_Suffix__"
 appgw_allocation_method = "Static"
-appgw_sku               = "Standard"
+appgw_sku               = "__Azgw_Sku__"
 use_brown_field_application_gateway = true
 bring_your_own_vnet                 = true
 
