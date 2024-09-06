@@ -135,6 +135,9 @@ variable "aks_rbac_aad" {
 variable "aks_rbac_aad_managed" {
   type = bool
 }
+variable "aks_rbac_aad_azure_rbac_enabled" {
+  type = bool
+}
 variable "aks_role_based_access_control_enabled" {
   type = bool
 }

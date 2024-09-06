@@ -41,6 +41,7 @@ module "aks" {
   private_cluster_enabled             = var.aks_private_cluster_enabled
   rbac_aad                            = var.aks_rbac_aad
   rbac_aad_managed                    = var.aks_rbac_aad_managed
+  rbac_aad_azure_rbac_enabled         = var.aks_rbac_aad_azure_rbac_enabled
   role_based_access_control_enabled   = var.aks_role_based_access_control_enabled
   key_vault_secrets_provider_enabled  = var.key_vault_secrets_provider_enabled
   secret_rotation_enabled             = var.secret_rotation_enabled
@@ -59,4 +60,17 @@ module "aks" {
   create_role_assignments_for_application_gateway = var.create_role_assignments_for_application_gateway
 
   tags = merge(local.default_tags, var.extra_tags)
+}
+
+#--------------------------------------------------------------------------------------------------------------------
+# ROLE ASSIGNMENT
+#--------------------------------------------------------------------------------------------------------------------
+module "admin_role" {
+  source = "./modules/role_assign"
+
+  aks_principal_id    = data.azurerm_client_config.current_config.object_id
+  role                = "Azure Kubernetes Service RBAC Cluster Admin"
+  aks_scope           = module.aks.aks_id
+
+  depends_on = [ module.aks ]
 }
